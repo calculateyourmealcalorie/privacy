@@ -5,429 +5,105 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Gizlilik Politikası — Calorie Count AI</title>
 <style>
-  :root{
-    --bg:#fbfbfa; --surface:#ffffff; --text:#1a1a18; --muted:#6b6b66;
-    --line:#e4e4e0; --accent:#1d7a4f; --accent-bg:#edf6f1;
-  }
-  @media (prefers-color-scheme: dark){
-    :root{
-      --bg:#131315; --surface:#1b1b1e; --text:#ececea; --muted:#9a9a95;
-      --line:#2c2c30; --accent:#4ec08a; --accent-bg:#17251f;
-    }
-  }
+  :root{--bg:#fbfbfa;--surface:#ffffff;--text:#1a1a18;--muted:#6b6b66;--line:#e4e4e0;--accent:#1d7a4f;--accent-bg:#edf6f1;}
+  @media (prefers-color-scheme: dark){:root{--bg:#131315;--surface:#1b1b1e;--text:#ececea;--muted:#9a9a95;--line:#2c2c30;--accent:#4ec08a;--accent-bg:#17251f;}}
   *{box-sizing:border-box}
-  body{
-    margin:0; background:var(--bg); color:var(--text);
-    font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    -webkit-text-size-adjust:100%;
-  }
-  .wrap{max-width:720px; margin:0 auto; padding:32px 20px 80px}
-  header{border-bottom:1px solid var(--line); padding-bottom:20px; margin-bottom:28px}
-  .brand{font-size:14px; color:var(--accent); font-weight:600; letter-spacing:.02em}
-  h1{font-size:28px; line-height:1.25; margin:10px 0 6px; font-weight:650}
-  .date{font-size:14px; color:var(--muted)}
-  .langs{display:flex; gap:8px; margin-top:18px; flex-wrap:wrap}
-  .langs button{
-    font:inherit; font-size:14px; padding:6px 14px; border-radius:20px; cursor:pointer;
-    background:transparent; color:var(--muted); border:1px solid var(--line);
-  }
-  .langs button[aria-current="true"]{background:var(--accent-bg); color:var(--accent); border-color:var(--accent)}
-  h2{font-size:19px; margin:34px 0 10px; font-weight:620; line-height:1.3}
-  h3{font-size:16px; margin:22px 0 6px; font-weight:600}
+  body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-text-size-adjust:100%;}
+  .wrap{max-width:720px;margin:0 auto;padding:32px 20px 80px}
+  header{border-bottom:1px solid var(--line);padding-bottom:20px;margin-bottom:28px}
+  .brand{font-size:14px;color:var(--accent);font-weight:600;letter-spacing:.02em}
+  h1{font-size:28px;line-height:1.25;margin:10px 0 6px;font-weight:650}
+  .date{font-size:14px;color:var(--muted)}
+  .langs{display:flex;gap:8px;margin-top:18px;flex-wrap:wrap}
+  .langs button{font:inherit;font-size:14px;padding:6px 14px;border-radius:20px;cursor:pointer;background:transparent;color:var(--muted);border:1px solid var(--line);}
+  .langs button[aria-current="true"]{background:var(--accent-bg);color:var(--accent);border-color:var(--accent)}
+  h2{font-size:19px;margin:34px 0 10px;font-weight:620;line-height:1.3}
+  h3{font-size:16px;margin:22px 0 6px;font-weight:600}
   p{margin:0 0 14px}
-  ul{margin:0 0 14px; padding-left:22px}
+  ul{margin:0 0 14px;padding-left:22px}
   li{margin-bottom:7px}
+  ol{margin:0 0 14px;padding-left:22px}
+  ol li{margin-bottom:10px}
   a{color:var(--accent)}
-  .box{
-    background:var(--surface); border:1px solid var(--line);
-    border-radius:12px; padding:16px 18px; margin:18px 0;
-  }
+  .box{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:18px 0;}
   .box p:last-child{margin-bottom:0}
-  table{width:100%; border-collapse:collapse; margin:16px 0; font-size:15px}
-  th,td{text-align:left; padding:10px 12px; border-bottom:1px solid var(--line); vertical-align:top}
-  th{font-weight:600; color:var(--muted); font-size:13px; letter-spacing:.03em; text-transform:none}
-  footer{margin-top:48px; padding-top:20px; border-top:1px solid var(--line); font-size:14px; color:var(--muted)}
+  .box ul:last-child{margin-bottom:0}
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:15px}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-weight:600;color:var(--muted);font-size:13px;letter-spacing:.03em}
+  .mail{display:inline-block;font-weight:600;background:var(--accent-bg);color:var(--accent);padding:3px 10px;border-radius:7px;text-decoration:none;}
+  .note{font-size:14px;color:var(--muted);font-style:italic;margin-top:24px}
+  footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
   [hidden]{display:none !important}
-  @media (max-width:520px){ h1{font-size:24px} table{font-size:14px} th,td{padding:8px} }
+  @media (max-width:520px){h1{font-size:24px}table{font-size:14px}th,td{padding:8px}}
 </style>
 </head>
 <body>
 <div class="wrap">
 
 <header>
-  <div class="brand">Calorie Count AI</div>
+  <div class="brand">Calorie Count AI · Yel Apps</div>
   <h1 id="pageTitle">Gizlilik Politikası</h1>
-  <div class="date" id="pageDate">Yürürlük tarihi: <!--TARIH--> · Sürüm 1.0</div>
-  <nav class="langs" aria-label="Dil seçimi">
+  <div class="date" id="pageDate"></div>
+  <nav class="langs" aria-label="Language">
     <button data-lang="tr" aria-current="true">Türkçe</button>
     <button data-lang="en" aria-current="false">English</button>
+    <button data-lang="es" aria-current="false">Español</button>
+    <button data-lang="fr" aria-current="false">Français</button>
+    <button data-lang="de" aria-current="false">Deutsch</button>
   </nav>
 </header>
 
-<!-- ======================= TÜRKÇE ======================= -->
-<section id="tr">
-
-<p>Bu politika, Calorie Count AI mobil uygulamasını kullandığınızda hangi kişisel
-verilerinizin işlendiğini, bu verilerin neden işlendiğini ve haklarınızı açıklar.</p>
-
-<div class="box">
-<p><strong>Özet:</strong> Verilerinizi yalnızca size beslenme hedefi hesaplamak ve
-yediklerinizi takip etmek için işliyoruz. Reklam göstermiyoruz, verilerinizi
-satmıyoruz, pazarlama amacıyla üçüncü taraflarla paylaşmıyoruz. Dilediğiniz zaman
-verilerinizin silinmesini isteyebilirsiniz.</p>
-</div>
-
-<h2>1. Veri sorumlusu</h2>
-<p>6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında veri sorumlusu:</p>
-<ul>
-  <li><strong>Emirhan Yel</strong></li>
-  <li>E-posta: <a href="mailto:calculateyourmealcalory@gmail.com">calculateyourmealcalory@gmail.com</a></li>
-</ul>
-<p>Avrupa Birliği'nde ikamet eden kullanıcılar için aynı kişi, Genel Veri Koruma
-Tüzüğü (GDPR) kapsamında veri sorumlusu sıfatını taşır.</p>
-
-<h2>2. İşlediğimiz veriler</h2>
-
-<table>
-<thead><tr><th>Veri kategorisi</th><th>İçerik</th><th>Neden</th></tr></thead>
-<tbody>
-<tr>
-  <td>Hesap bilgileri</td>
-  <td>Ad, e-posta adresi, şifre (geri döndürülemez şekilde şifrelenmiş olarak saklanır)</td>
-  <td>Hesabınızı oluşturmak ve oturum açmanızı sağlamak</td>
-</tr>
-<tr>
-  <td>Sağlık ve vücut verileri</td>
-  <td>Doğum tarihi, cinsiyet, boy, kilo, bel/boyun/kalça çevresi, hesaplanan vücut yağ oranı, aktivite düzeyi, kilo hedefi</td>
-  <td>Günlük kalori ve makro besin hedefinizi hesaplamak</td>
-</tr>
-<tr>
-  <td>Beslenme ve egzersiz kayıtları</td>
-  <td>Kaydettiğiniz besinler, miktarlar, öğün bilgisi, egzersiz türü ve süresi, tarih ve saat</td>
-  <td>Günlük takibinizi sunmak ve geçmişinizi saklamak</td>
-</tr>
-<tr>
-  <td>Teknik tercihler</td>
-  <td>Uygulama dili, saat dilimi</td>
-  <td>Arayüzü dilinize uyarlamak; "bugün" kavramını doğru saat diliminde hesaplamak</td>
-</tr>
-<tr>
-  <td>Rıza kayıtları</td>
-  <td>Açık rızayı verdiğiniz tarih ve kabul ettiğiniz politika sürümü</td>
-  <td>Yasal yükümlülüğümüzü yerine getirmek ve rızanın varlığını ispatlayabilmek</td>
-</tr>
-</tbody>
-</table>
-
-<p>Konum verinizi, rehberinizi, fotoğraf galerinizi veya cihaz tanımlayıcılarınızı
-toplamıyoruz. Uygulamada reklam kimliği, izleme pikseli veya analiz aracı
-bulunmuyor.</p>
-
-<h2>3. Hukuki dayanak</h2>
-
-<h3>Sağlık verileri</h3>
-<p>Boy, kilo, çevre ölçüleriniz ve bunlardan hesaplanan vücut yağ oranı, KVKK
-madde 6 kapsamında <strong>özel nitelikli kişisel veridir</strong>. Bu verileri
-yalnızca uygulamayı ilk açtığınızda verdiğiniz <strong>açık rızaya</strong>
-dayanarak işliyoruz. GDPR kapsamında dayanak madde 9(2)(a)'dır.</p>
-<p>Rızanızı istediğiniz zaman geri çekebilirsiniz. Geri çektiğinizde hedef
-hesaplama özelliği çalışmaz hâle gelir, çünkü hesaplama tamamen bu verilere
-dayanır.</p>
-
-<h3>Diğer veriler</h3>
-<p>Hesap bilgileriniz ve kayıtlarınız, sizinle aramızdaki kullanım sözleşmesinin
-ifası için işlenir (KVKK m.5/2-c; GDPR m.6(1)(b)).</p>
-
-<h2>4. Yapay zekâ ile işleme</h2>
-<p>Yediğinizi veya yaptığınız egzersizi serbest metinle yazdığınızda
-("iki yumurta ve bir dilim ekmek" gibi), bu metin sunucumuz üzerinden
-<strong>Anthropic PBC</strong> tarafından işletilen Claude yapay zekâ servisine
-gönderilir. Amaç, cümleyi besin adı ve miktar bilgisine dönüştürmektir.</p>
-
-<div class="box">
-<p><strong>Gönderilenler:</strong> yazdığınız metin ve uygulama diliniz.</p>
-<p><strong>Gönderilmeyenler:</strong> adınız, e-posta adresiniz, kilonuz, boyunuz,
-vücut ölçüleriniz, hedefleriniz veya geçmiş kayıtlarınız. Yapay zekâ servisi sizi
-tanımlayan hiçbir bilgi almaz.</p>
-</div>
-
-<p>Kalori ve makro hesaplamaları yapay zekâ tarafından yapılmaz. Bazal
-metabolizma hızı, günlük enerji harcaması, vücut yağ oranı ve kalori hedefi
-bilinen beslenme formülleriyle (Mifflin-St Jeor, Katch-McArdle, US Navy yöntemi)
-hesaplanır.</p>
-
-<p>Anthropic PBC Amerika Birleşik Devletleri merkezlidir. Bu nedenle söz konusu
-metin yurt dışına aktarılmış olur; aktarım açık rızanıza dayanır. Anthropic'in
-kendi gizlilik politikasına
-<a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">anthropic.com/legal/privacy</a>
-adresinden ulaşabilirsiniz.</p>
-
-<h2>5. Verilerin saklandığı yer</h2>
-<p>Hesabınız ve kayıtlarınız MongoDB Atlas üzerinde, <strong>Frankfurt (Almanya)</strong>
-bölgesinde saklanır. Uygulama sunucusu Render platformunda, yine Frankfurt
-bölgesinde çalışır. Her iki hizmet de Avrupa Birliği sınırları içindedir.</p>
-
-<h2>6. Hizmet sağlayıcılar</h2>
-<p>Aşağıdaki sağlayıcılar, hizmeti sunabilmemiz için gereken ölçüde verilerinizi
-işler. Hiçbiri verilerinizi kendi amaçları için kullanamaz:</p>
-<ul>
-  <li><strong>MongoDB Atlas</strong> — veritabanı barındırma (Frankfurt)</li>
-  <li><strong>Render</strong> — sunucu barındırma (Frankfurt)</li>
-  <li><strong>Anthropic PBC</strong> — metin çözümleme (ABD; yalnızca yazdığınız besin metni)</li>
-  <li><strong>Open Food Facts</strong> — besin veritabanı sorguları (yalnızca arama terimi gönderilir, kimliğiniz gönderilmez)</li>
-</ul>
-
-<h2>7. Yapmadığımız şeyler</h2>
-<ul>
-  <li>Verilerinizi satmıyoruz veya kiralamıyoruz.</li>
-  <li>Reklam göstermiyoruz ve reklam amaçlı profilleme yapmıyoruz.</li>
-  <li>Sağlık verilerinizi sigorta şirketleri, işverenler veya veri simsarlarıyla paylaşmıyoruz.</li>
-  <li>Verilerinizi otomatik kararlarla hukuki sonuç doğuracak şekilde kullanmıyoruz.</li>
-</ul>
-
-<h2>8. Saklama süresi</h2>
-<p>Verileriniz hesabınız açık kaldığı sürece saklanır. Silme talebiniz üzerine
-hesabınız ve tüm kayıtlarınız en geç <strong>30 gün</strong> içinde kalıcı olarak
-silinir. Rıza kayıtları, hukuki ispat yükümlülüğü nedeniyle silmeden sonra sınırlı
-bir süre daha tutulabilir.</p>
-
-<h2>9. Haklarınız</h2>
-<p>KVKK madde 11 ve GDPR madde 15-22 kapsamında şu haklara sahipsiniz:</p>
-<ul>
-  <li>Verilerinizin işlenip işlenmediğini öğrenme ve bir kopyasını talep etme</li>
-  <li>Eksik veya yanlış verilerin düzeltilmesini isteme</li>
-  <li>Verilerinizin silinmesini isteme</li>
-  <li>Açık rızanızı geri çekme</li>
-  <li>Verilerinizi yapılandırılmış bir biçimde alma (veri taşınabilirliği)</li>
-  <li>İşlemeye itiraz etme</li>
-</ul>
-<p>Taleplerinizi uygulama içindeki <em>Ayarlar</em> ekranından veya
-<a href="mailto:calculateyourmealcalory@gmail.com">calculateyourmealcalory@gmail.com</a>
-adresine yazarak iletebilirsiniz. Taleplere en geç 30 gün içinde yanıt veriyoruz.</p>
-<p>Hesabınızı ve verilerinizi silmek istiyorsanız adımların tamamı ayrı bir sayfada
-anlatılıyor: <a href="./delete-account.html">Hesap ve Veri Silme</a>. Orada hangi
-verilerin silindiğini, hangilerinin ne kadar süre saklandığını ve hesabınızı
-silmeden yalnızca kayıtlarınızı nasıl temizleyebileceğinizi bulabilirsiniz.</p>
-<p>Türkiye'de Kişisel Verileri Koruma Kurumu'na, Avrupa Birliği'nde ise bulunduğunuz
-ülkenin veri koruma otoritesine şikâyette bulunma hakkınız saklıdır.</p>
-
-<h2>10. Yaş sınırı</h2>
-<p>Uygulama <strong>18 yaş ve üzeri</strong> kullanıcılar içindir. 18 yaşından küçük
-olduğunuzu belirtirseniz kalori hedefi oluşturulmaz. Bir çocuğa ait veri topladığımızı
-öğrenirsek bu veriyi sileriz.</p>
-
-<h2>11. Güvenlik</h2>
-<p>Tüm bağlantılar TLS ile şifrelenir. Şifreler bcrypt ile, geri döndürülemez
-biçimde saklanır. Oturum anahtarları cihazınızda işletim sisteminin güvenli
-depolama alanında tutulur. Veritabanı erişimi kimlik doğrulamasıyla korunur.</p>
-<p>Hiçbir sistem mutlak güvenlik garantisi veremez. Verilerinizi etkileyen bir
-ihlal olması hâlinde sizi ve yetkili otoriteyi mevzuatın öngördüğü süre içinde
-bilgilendiririz.</p>
-
-<h2>12. Değişiklikler</h2>
-<p>Bu politika değiştiğinde bu sayfada yayımlarız ve sürüm numarasını güncelleriz.
-Esaslı bir değişiklik olursa uygulama içinde bildiririz ve gerekiyorsa yeniden
-rızanızı isteriz.</p>
-
-<h2>13. İletişim</h2>
-<p>Her türlü soru ve talep için:
-<a href="mailto:calculateyourmealcalory@gmail.com">calculateyourmealcalory@gmail.com</a></p>
-
+<section id="sec-tr">
+<p>Bu politika, Calorie Count AI mobil uygulamasını kullandığınızda hangi kişisel verilerinizin işlendiğini, bu verilerin neden işlendiğini ve haklarınızı açıklar.</p><div class="box"><p><strong>Özet:</strong> Verilerinizi yalnızca size beslenme hedefi hesaplamak ve yediklerinizi takip etmek için işliyoruz. Reklam göstermiyoruz, verilerinizi satmıyoruz, pazarlama amacıyla üçüncü taraflarla paylaşmıyoruz. Dilediğiniz zaman verilerinizin silinmesini isteyebilirsiniz.</p></div><h2>1. Veri sorumlusu</h2><p>6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında veri sorumlusu:</p><ul><li><strong>Emirhan Yel</strong></li><li>E-posta: <a href="mailto:calculateyourmealcalory@gmail.com">calculateyourmealcalory@gmail.com</a></li></ul><p>Avrupa Birliği'nde ikamet eden kullanıcılar için aynı kişi, Genel Veri Koruma Tüzüğü (GDPR) kapsamında veri sorumlusu sıfatını taşır.</p><h2>2. İşlediğimiz veriler</h2><table><thead><tr><th>Veri kategorisi</th><th>İçerik</th><th>Neden</th></tr></thead><tbody><tr><td>Hesap bilgileri</td><td>Ad, e-posta adresi, şifre (geri döndürülemez şekilde şifrelenmiş olarak saklanır)</td><td>Hesabınızı oluşturmak ve oturum açmanızı sağlamak</td></tr><tr><td>Sağlık ve vücut verileri</td><td>Doğum tarihi, cinsiyet, boy, kilo, bel/boyun/kalça çevresi, hesaplanan vücut yağ oranı, aktivite düzeyi, kilo hedefi</td><td>Günlük kalori ve makro besin hedefinizi hesaplamak</td></tr><tr><td>Beslenme ve egzersiz kayıtları</td><td>Kaydettiğiniz besinler, miktarlar, öğün bilgisi, egzersiz türü ve süresi, tarih ve saat</td><td>Günlük takibinizi sunmak ve geçmişinizi saklamak</td></tr><tr><td>Teknik tercihler</td><td>Uygulama dili, saat dilimi</td><td>Arayüzü dilinize uyarlamak; "bugün" kavramını doğru saat diliminde hesaplamak</td></tr><tr><td>Rıza kayıtları</td><td>Açık rızayı verdiğiniz tarih ve kabul ettiğiniz politika sürümü</td><td>Yasal yükümlülüğümüzü yerine getirmek ve rızanın varlığını ispatlayabilmek</td></tr></tbody></table><p>Konum verinizi, rehberinizi, fotoğraf galerinizi veya cihaz tanımlayıcılarınızı toplamıyoruz. Uygulamada reklam kimliği, izleme pikseli veya analiz aracı bulunmuyor.</p><h2>3. Hukuki dayanak</h2><h3>Sağlık verileri</h3><p>Boy, kilo, çevre ölçüleriniz ve bunlardan hesaplanan vücut yağ oranı, KVKK madde 6 kapsamında <strong>özel nitelikli kişisel veridir</strong>. Bu verileri yalnızca uygulamayı ilk açtığınızda verdiğiniz <strong>açık rızaya</strong> dayanarak işliyoruz. GDPR kapsamında dayanak madde 9(2)(a)'dır.</p><p>Rızanızı istediğiniz zaman geri çekebilirsiniz. Geri çektiğinizde hedef hesaplama özelliği çalışmaz hâle gelir, çünkü hesaplama tamamen bu verilere dayanır.</p><h3>Diğer veriler</h3><p>Hesap bilgileriniz ve kayıtlarınız, sizinle aramızdaki kullanım sözleşmesinin ifası için işlenir (KVKK m.5/2-c; GDPR m.6(1)(b)).</p><h2>4. Yapay zekâ ile işleme</h2><p>Yediğinizi veya yaptığınız egzersizi serbest metinle yazdığınızda ("iki yumurta ve bir dilim ekmek" gibi), bu metin sunucumuz üzerinden <strong>Anthropic PBC</strong> tarafından işletilen Claude yapay zekâ servisine gönderilir. Amaç, cümleyi besin adı ve miktar bilgisine dönüştürmektir.</p><div class="box"><p><strong>Gönderilenler:</strong> yazdığınız metin ve uygulama diliniz.</p><p><strong>Gönderilmeyenler:</strong> adınız, e-posta adresiniz, kilonuz, boyunuz, vücut ölçüleriniz, hedefleriniz veya geçmiş kayıtlarınız. Yapay zekâ servisi sizi tanımlayan hiçbir bilgi almaz.</p></div><p>Kalori ve makro hesaplamaları yapay zekâ tarafından yapılmaz. Bazal metabolizma hızı, günlük enerji harcaması, vücut yağ oranı ve kalori hedefi bilinen beslenme formülleriyle (Mifflin-St Jeor, Katch-McArdle, US Navy yöntemi) hesaplanır.</p><p>Yazdığınız metin bizim tarafımızdan saklanmaz; yalnızca isteğin yerine getirilmesi süresince bellekte tutulur.</p><h2>5. Hizmet sağlayıcılar</h2><p>Verilerinizi bizim adımıza ve bizim talimatımızla işleyen hizmet sağlayıcılar kullanıyoruz:</p><ul><li><strong>MongoDB Atlas</strong> — veritabanı (Frankfurt, Almanya)</li><li><strong>Render</strong> — sunucu altyapısı (Frankfurt, Almanya)</li><li><strong>Anthropic PBC</strong> — yapay zekâ metin ayrıştırma (ABD)</li><li><strong>Brevo</strong> — doğrulama ve şifre sıfırlama e-postaları (Avrupa Birliği)</li><li><strong>Open Food Facts</strong> — besin veritabanı; yalnızca arama terimi iletilir, kimlik bilgisi gitmez</li></ul><p>Bu kuruluşlar verilerinizi kendi amaçları için kullanmaz. ABD'ye yapılan aktarım, Avrupa Komisyonu'nun standart sözleşme hükümlerine dayanır.</p><h2>6. Yapmadığımız şeyler</h2><ul><li>Verilerinizi satmıyoruz veya kiralamıyoruz.</li><li>Reklam göstermiyoruz ve reklam amaçlı profilleme yapmıyoruz.</li><li>Sağlık verilerinizi sigorta şirketleri, işverenler veya veri simsarlarıyla paylaşmıyoruz.</li><li>Verilerinizi otomatik kararlarla hukuki sonuç doğuracak şekilde kullanmıyoruz.</li></ul><h2>7. Saklama süresi</h2><p>Verileriniz hesabınız açık kaldığı sürece saklanır. Silme talebiniz üzerine hesabınız ve tüm kayıtlarınız en geç <strong>30 gün</strong> içinde kalıcı olarak silinir. Rıza kayıtları, hukuki ispat yükümlülüğü nedeniyle silmeden sonra en fazla 3 yıl tutulur.</p><h2>8. Haklarınız</h2><p>KVKK madde 11 ve GDPR madde 15-22 kapsamında şu haklara sahipsiniz:</p><ul><li>Verilerinizin işlenip işlenmediğini öğrenme ve bir kopyasını talep etme</li><li>Eksik veya yanlış verilerin düzeltilmesini isteme</li><li>Verilerinizin silinmesini isteme</li><li>Açık rızanızı geri çekme</li><li>Verilerinizi yapılandırılmış bir biçimde alma (veri taşınabilirliği)</li><li>İşlemeye itiraz etme</li></ul><p>Taleplerinizi uygulama içindeki <em>Ayarlar</em> ekranından veya <a href="mailto:calculateyourmealcalory@gmail.com">calculateyourmealcalory@gmail.com</a> adresine yazarak iletebilirsiniz. Taleplere en geç 30 gün içinde yanıt veriyoruz.</p><p>Hesabınızı ve verilerinizi silmek istiyorsanız adımların tamamı ayrı bir sayfada anlatılıyor: <a href="./delete-account.html">Hesap ve Veri Silme</a>. Orada hangi verilerin silindiğini, hangilerinin ne kadar süre saklandığını ve hesabınızı silmeden yalnızca kayıtlarınızı nasıl temizleyebileceğinizi bulabilirsiniz.</p><p>Türkiye'de Kişisel Verileri Koruma Kurumu'na, Avrupa Birliği'nde ise bulunduğunuz ülkenin veri koruma otoritesine şikâyette bulunma hakkınız saklıdır.</p><h2>9. Yaş sınırı</h2><p>Uygulama <strong>18 yaş ve üzeri</strong> kullanıcılar içindir. 18 yaşından küçük olduğunuzu belirtirseniz kalori hedefi oluşturulmaz. Bir çocuğa ait veri topladığımızı öğrenirsek bu veriyi sileriz.</p><h2>10. Güvenlik</h2><p>Tüm bağlantılar TLS ile şifrelenir. Şifreler bcrypt ile, geri döndürülemez biçimde saklanır. Oturum anahtarları cihazınızda işletim sisteminin güvenli depolama alanında tutulur. Veritabanı erişimi kimlik doğrulamasıyla korunur.</p><p>Hiçbir sistem mutlak güvenlik garantisi veremez. Verilerinizi etkileyen bir ihlal olması hâlinde sizi ve yetkili otoriteyi mevzuatın öngördüğü süre içinde bilgilendiririz.</p><h2>11. Değişiklikler</h2><p>Bu politika değiştiğinde bu sayfada yayımlarız ve sürüm numarasını güncelleriz. Esaslı bir değişiklik olursa uygulama içinde bildiririz ve gerekiyorsa yeniden rızanızı isteriz.</p><h2>12. İletişim</h2><p>Her türlü soru ve talep için: <a href="mailto:calculateyourmealcalory@gmail.com">calculateyourmealcalory@gmail.com</a></p>
 </section>
 
-<!-- ======================= ENGLISH ======================= -->
-<section id="en" hidden>
+<section id="sec-en" hidden>
+<p>This policy explains what personal data Calorie Count AI processes, why we process it, and what rights you have.</p><div class="box"><p><strong>In short:</strong> We process your data only to calculate your nutrition targets and track what you eat. We show no advertising, we do not sell your data, and we do not share it with third parties for marketing. You can request deletion at any time.</p></div><h2>1. Who is responsible</h2><p>The data controller under the Turkish Personal Data Protection Law (KVKK, Law No. 6698) and the EU General Data Protection Regulation (GDPR) is:</p><ul><li><strong>Emirhan Yel</strong></li><li>Email: <a href="mailto:calculateyourmealcalory@gmail.com">calculateyourmealcalory@gmail.com</a></li></ul><h2>2. Data we process</h2><table><thead><tr><th>Category</th><th>What it includes</th><th>Why</th></tr></thead><tbody><tr><td>Account data</td><td>Name, email address, password (stored only as an irreversible hash)</td><td>To create your account and let you sign in</td></tr><tr><td>Health and body data</td><td>Date of birth, sex, height, weight, waist/neck/hip measurements, calculated body fat percentage, activity level, weight goal</td><td>To calculate your daily calorie and macronutrient targets</td></tr><tr><td>Food and exercise logs</td><td>Foods you log, amounts, meal type, exercise type and duration, date and time</td><td>To show your daily tracking and keep your history</td></tr><tr><td>Technical preferences</td><td>App language, time zone</td><td>To show the interface in your language and to calculate "today" in your own time zone</td></tr><tr><td>Consent records</td><td>The date you gave explicit consent and the policy version you accepted</td><td>To meet our legal obligation and demonstrate that consent was given</td></tr></tbody></table><p>We do not collect your location, contacts, photo library or device identifiers. The app contains no advertising identifier, tracking pixel or analytics tool.</p><h2>3. Legal basis</h2><h3>Health data</h3><p>Your height, weight, body measurements and the body fat percentage derived from them are a <strong>special category of personal data</strong> under GDPR Article 9 and KVKK Article 6. We process them solely on the <strong>explicit consent</strong> you give when you first open the app (GDPR Art. 9(2)(a)).</p><p>You can withdraw consent at any time. If you do, target calculation stops working, because it relies entirely on this data.</p><h3>Other data</h3><p>Your account data and logs are processed to perform our agreement with you (KVKK Art. 5/2-c; GDPR Art. 6(1)(b)).</p><h2>4. Processing with AI</h2><p>When you describe a meal or an exercise in free text ("two eggs and a slice of bread"), that text is sent through our server to the Claude AI service operated by <strong>Anthropic PBC</strong>. Its only job is to turn the sentence into a food name and an amount.</p><div class="box"><p><strong>What is sent:</strong> the text you typed and your app language.</p><p><strong>What is not sent:</strong> your name, email address, weight, height, body measurements, goals or past logs. The AI service receives nothing that identifies you.</p></div><p>Calorie and macronutrient figures are not produced by AI. Basal metabolic rate, daily energy expenditure, body fat percentage and your calorie target are calculated with established nutrition formulas (Mifflin-St Jeor, Katch-McArdle, US Navy method).</p><p>The text you type is not stored by us; it is held in memory only for as long as the request takes.</p><h2>5. Service providers</h2><p>We use service providers that process data on our behalf and on our instructions:</p><ul><li><strong>MongoDB Atlas</strong> — database (Frankfurt, Germany)</li><li><strong>Render</strong> — server infrastructure (Frankfurt, Germany)</li><li><strong>Anthropic PBC</strong> — AI text parsing (United States)</li><li><strong>Brevo</strong> — verification and password reset emails (European Union)</li><li><strong>Open Food Facts</strong> — food database; only a search term is sent, never anything identifying</li></ul><p>These organisations do not use your data for their own purposes. Transfers to the United States rely on the European Commission's standard contractual clauses.</p><h2>6. What we do not do</h2><ul><li>We do not sell or rent your data.</li><li>We show no advertising and do no advertising-related profiling.</li><li>We do not share your health data with insurers, employers or data brokers.</li><li>We do not use your data for automated decisions with legal effects.</li></ul><h2>7. Retention</h2><p>Your data is kept while your account remains open. On a deletion request, your account and all logs are permanently deleted within <strong>30 days</strong>. Consent records are kept for up to 3 years after deletion as proof of compliance.</p><h2>8. Your rights</h2><p>Under KVKK Article 11 and GDPR Articles 15-22 you have the right to:</p><ul><li>Ask whether we process your data and request a copy</li><li>Have inaccurate or incomplete data corrected</li><li>Request deletion of your data</li><li>Withdraw your explicit consent</li><li>Receive your data in a structured format (portability)</li><li>Object to processing</li></ul><p>You can submit requests from the <em>Settings</em> screen in the app, or by writing to <a href="mailto:calculateyourmealcalory@gmail.com">calculateyourmealcalory@gmail.com</a>. We respond within 30 days.</p><p>If you want to delete your account and your data, the full steps are on a separate page: <a href="./delete-account.html">Account and Data Deletion</a>. It sets out which data is deleted, what is retained and for how long, and how to clear your records without closing your account.</p><p>You retain the right to lodge a complaint with your national data protection authority, or with the Turkish Personal Data Protection Authority (KVKK Kurumu).</p><h2>9. Age limit</h2><p>The app is intended for users aged <strong>18 and over</strong>. If you indicate that you are under 18, no calorie target is created. If we learn that we have collected data belonging to a child, we delete it.</p><h2>10. Security</h2><p>All connections are encrypted with TLS. Passwords are stored as irreversible bcrypt hashes. Session tokens are held in your device's secure storage. Database access is protected by authentication.</p><p>No system can guarantee absolute security. If a breach affects your data, we will notify you and the competent authority within the period required by law.</p><h2>11. Changes</h2><p>When this policy changes we publish the new version on this page and update the version number. For material changes we notify you in the app and, where required, ask for your consent again.</p><h2>12. Contact</h2><p>For any question or request: <a href="mailto:calculateyourmealcalory@gmail.com">calculateyourmealcalory@gmail.com</a></p>
+</section>
 
-<p>This policy explains what personal data Calorie Count AI processes, why we
-process it, and what rights you have.</p>
+<section id="sec-es" hidden>
+<p>Esta política explica qué datos personales trata Calorie Count AI, por qué los trata y qué derechos tienes.</p><div class="box"><p><strong>En resumen:</strong> Tratamos tus datos únicamente para calcular tus objetivos nutricionales y registrar lo que comes. No mostramos publicidad, no vendemos tus datos y no los compartimos con terceros con fines de marketing. Puedes solicitar su eliminación en cualquier momento.</p></div><h2>1. Responsable del tratamiento</h2><p>El responsable del tratamiento, conforme a la Ley turca de Protección de Datos Personales (KVKK, Ley n.º 6698) y al Reglamento General de Protección de Datos (RGPD), es:</p><ul><li><strong>Emirhan Yel</strong></li><li>Correo electrónico: <a href="mailto:calculateyourmealcalory@gmail.com">calculateyourmealcalory@gmail.com</a></li></ul><h2>2. Datos que tratamos</h2><table><thead><tr><th>Categoría</th><th>Qué incluye</th><th>Para qué</th></tr></thead><tbody><tr><td>Datos de la cuenta</td><td>Nombre, correo electrónico, contraseña (almacenada solo como hash irreversible)</td><td>Crear tu cuenta y permitirte iniciar sesión</td></tr><tr><td>Datos de salud y corporales</td><td>Fecha de nacimiento, sexo, estatura, peso, medidas de cintura/cuello/cadera, porcentaje de grasa corporal calculado, nivel de actividad, objetivo de peso</td><td>Calcular tus objetivos diarios de calorías y macronutrientes</td></tr><tr><td>Registros de comida y ejercicio</td><td>Alimentos registrados, cantidades, tipo de comida, tipo y duración del ejercicio, fecha y hora</td><td>Mostrar tu seguimiento diario y conservar tu historial</td></tr><tr><td>Preferencias técnicas</td><td>Idioma de la aplicación, zona horaria</td><td>Mostrar la interfaz en tu idioma y calcular «hoy» en tu zona horaria</td></tr><tr><td>Registros de consentimiento</td><td>La fecha en que diste tu consentimiento explícito y la versión de la política aceptada</td><td>Cumplir nuestra obligación legal y poder demostrar que se otorgó el consentimiento</td></tr></tbody></table><p>No recogemos tu ubicación, tus contactos, tu galería de fotos ni identificadores de dispositivo. La aplicación no contiene identificador publicitario, píxel de seguimiento ni herramienta de analítica.</p><h2>3. Base jurídica</h2><h3>Datos de salud</h3><p>Tu estatura, peso, medidas corporales y el porcentaje de grasa corporal derivado de ellos son una <strong>categoría especial de datos personales</strong> según el artículo 9 del RGPD y el artículo 6 de la KVKK. Los tratamos únicamente sobre la base del <strong>consentimiento explícito</strong> que otorgas al abrir la aplicación por primera vez (art. 9(2)(a) del RGPD).</p><p>Puedes retirar tu consentimiento en cualquier momento. Si lo haces, el cálculo de objetivos deja de funcionar, ya que depende por completo de estos datos.</p><h3>Otros datos</h3><p>Los datos de tu cuenta y tus registros se tratan para ejecutar el contrato que nos vincula (art. 5/2-c de la KVKK; art. 6(1)(b) del RGPD).</p><h2>4. Tratamiento con inteligencia artificial</h2><p>Cuando describes una comida o un ejercicio en texto libre («dos huevos y una rebanada de pan»), ese texto se envía a través de nuestro servidor al servicio de IA Claude, operado por <strong>Anthropic PBC</strong>. Su única función es convertir la frase en un nombre de alimento y una cantidad.</p><div class="box"><p><strong>Lo que se envía:</strong> el texto que escribes y el idioma de tu aplicación.</p><p><strong>Lo que no se envía:</strong> tu nombre, correo electrónico, peso, estatura, medidas corporales, objetivos ni registros anteriores. El servicio de IA no recibe nada que te identifique.</p></div><p>Las cifras de calorías y macronutrientes no las produce la IA. El metabolismo basal, el gasto energético diario, el porcentaje de grasa corporal y tu objetivo calórico se calculan con fórmulas nutricionales establecidas (Mifflin-St Jeor, Katch-McArdle, método de la Marina de EE. UU.).</p><p>No almacenamos el texto que escribes; se mantiene en memoria solo durante el tiempo que dura la petición.</p><h2>5. Proveedores de servicios</h2><p>Utilizamos proveedores que tratan los datos por nuestra cuenta y siguiendo nuestras instrucciones:</p><ul><li><strong>MongoDB Atlas</strong> — base de datos (Fráncfort, Alemania)</li><li><strong>Render</strong> — infraestructura de servidor (Fráncfort, Alemania)</li><li><strong>Anthropic PBC</strong> — análisis de texto con IA (Estados Unidos)</li><li><strong>Brevo</strong> — correos de verificación y restablecimiento de contraseña (Unión Europea)</li><li><strong>Open Food Facts</strong> — base de datos de alimentos; solo se envía un término de búsqueda, nunca datos identificativos</li></ul><p>Estas organizaciones no usan tus datos para fines propios. Las transferencias a Estados Unidos se amparan en las cláusulas contractuales tipo de la Comisión Europea.</p><h2>6. Lo que no hacemos</h2><ul><li>No vendemos ni alquilamos tus datos.</li><li>No mostramos publicidad ni elaboramos perfiles con fines publicitarios.</li><li>No compartimos tus datos de salud con aseguradoras, empleadores ni intermediarios de datos.</li><li>No usamos tus datos para decisiones automatizadas con efectos jurídicos.</li></ul><h2>7. Conservación</h2><p>Tus datos se conservan mientras tu cuenta siga abierta. Si solicitas la eliminación, tu cuenta y todos tus registros se eliminan de forma permanente en un plazo máximo de <strong>30 días</strong>. Los registros de consentimiento se conservan hasta 3 años después de la eliminación como prueba de cumplimiento.</p><h2>8. Tus derechos</h2><p>Conforme al artículo 11 de la KVKK y a los artículos 15-22 del RGPD, tienes derecho a:</p><ul><li>Saber si tratamos tus datos y solicitar una copia</li><li>Rectificar datos inexactos o incompletos</li><li>Solicitar la eliminación de tus datos</li><li>Retirar tu consentimiento explícito</li><li>Recibir tus datos en un formato estructurado (portabilidad)</li><li>Oponerte al tratamiento</li></ul><p>Puedes enviar tus solicitudes desde la pantalla <em>Ajustes</em> de la aplicación o escribiendo a <a href="mailto:calculateyourmealcalory@gmail.com">calculateyourmealcalory@gmail.com</a>. Respondemos en un plazo máximo de 30 días.</p><p>Si quieres eliminar tu cuenta y tus datos, los pasos completos están en una página aparte: <a href="./delete-account.html">Eliminación de cuenta y datos</a>. Allí encontrarás qué datos se eliminan, cuáles se conservan y durante cuánto tiempo, y cómo borrar tus registros sin cerrar la cuenta.</p><p>Conservas el derecho a presentar una reclamación ante la autoridad de protección de datos de tu país o ante la Autoridad Turca de Protección de Datos Personales.</p><h2>9. Edad mínima</h2><p>La aplicación está destinada a personas de <strong>18 años o más</strong>. Si indicas que eres menor de 18 años, no se crea ningún objetivo calórico. Si descubrimos que hemos recogido datos de un menor, los eliminamos.</p><h2>10. Seguridad</h2><p>Todas las conexiones se cifran con TLS. Las contraseñas se almacenan como hashes bcrypt irreversibles. Los tokens de sesión se guardan en el almacenamiento seguro de tu dispositivo. El acceso a la base de datos está protegido por autenticación.</p><p>Ningún sistema puede garantizar una seguridad absoluta. Si una brecha afecta a tus datos, te lo notificaremos a ti y a la autoridad competente dentro del plazo exigido por la ley.</p><h2>11. Cambios</h2><p>Cuando esta política cambie, publicaremos la nueva versión en esta página y actualizaremos el número de versión. Ante cambios sustanciales te lo notificaremos en la aplicación y, si procede, te pediremos de nuevo tu consentimiento.</p><h2>12. Contacto</h2><p>Para cualquier duda o solicitud: <a href="mailto:calculateyourmealcalory@gmail.com">calculateyourmealcalory@gmail.com</a></p><p class="note">Esta traducción se ofrece a título informativo. En caso de discrepancia, prevalece la versión turca.</p>
+</section>
 
-<div class="box">
-<p><strong>In short:</strong> We process your data only to calculate your nutrition
-targets and track what you eat. We show no advertising, we do not sell your data,
-and we do not share it with third parties for marketing. You can request deletion
-at any time.</p>
-</div>
+<section id="sec-fr" hidden>
+<p>Cette politique explique quelles données personnelles Calorie Count AI traite, pourquoi elle les traite et quels sont vos droits.</p><div class="box"><p><strong>En bref :</strong> Nous traitons vos données uniquement pour calculer vos objectifs nutritionnels et suivre ce que vous mangez. Nous n'affichons aucune publicité, nous ne vendons pas vos données et nous ne les partageons pas à des fins de marketing. Vous pouvez demander leur suppression à tout moment.</p></div><h2>1. Responsable du traitement</h2><p>Le responsable du traitement, au sens de la loi turque sur la protection des données personnelles (KVKK, loi n° 6698) et du Règlement général sur la protection des données (RGPD), est :</p><ul><li><strong>Emirhan Yel</strong></li><li>Courriel : <a href="mailto:calculateyourmealcalory@gmail.com">calculateyourmealcalory@gmail.com</a></li></ul><h2>2. Données traitées</h2><table><thead><tr><th>Catégorie</th><th>Contenu</th><th>Finalité</th></tr></thead><tbody><tr><td>Données de compte</td><td>Nom, adresse e-mail, mot de passe (conservé uniquement sous forme de hachage irréversible)</td><td>Créer votre compte et vous permettre de vous connecter</td></tr><tr><td>Données de santé et corporelles</td><td>Date de naissance, sexe, taille, poids, tours de taille/cou/hanches, taux de masse grasse calculé, niveau d'activité, objectif de poids</td><td>Calculer vos objectifs quotidiens de calories et de macronutriments</td></tr><tr><td>Journaux d'alimentation et d'exercice</td><td>Aliments enregistrés, quantités, type de repas, type et durée d'exercice, date et heure</td><td>Afficher votre suivi quotidien et conserver votre historique</td></tr><tr><td>Préférences techniques</td><td>Langue de l'application, fuseau horaire</td><td>Afficher l'interface dans votre langue et calculer « aujourd'hui » dans votre fuseau horaire</td></tr><tr><td>Registres de consentement</td><td>La date de votre consentement explicite et la version de la politique acceptée</td><td>Satisfaire à notre obligation légale et pouvoir prouver que le consentement a été donné</td></tr></tbody></table><p>Nous ne collectons ni votre localisation, ni vos contacts, ni votre galerie photo, ni d'identifiants d'appareil. L'application ne contient aucun identifiant publicitaire, pixel de suivi ou outil d'analyse.</p><h2>3. Base légale</h2><h3>Données de santé</h3><p>Votre taille, votre poids, vos mensurations et le taux de masse grasse qui en découle constituent une <strong>catégorie particulière de données personnelles</strong> au sens de l'article 9 du RGPD et de l'article 6 de la KVKK. Nous les traitons uniquement sur la base du <strong>consentement explicite</strong> que vous donnez à la première ouverture de l'application (art. 9(2)(a) du RGPD).</p><p>Vous pouvez retirer votre consentement à tout moment. Dans ce cas, le calcul des objectifs cesse de fonctionner, car il repose entièrement sur ces données.</p><h3>Autres données</h3><p>Les données de votre compte et vos journaux sont traités pour exécuter le contrat qui nous lie (art. 5/2-c de la KVKK ; art. 6(1)(b) du RGPD).</p><h2>4. Traitement par intelligence artificielle</h2><p>Lorsque vous décrivez un repas ou un exercice en texte libre (« deux œufs et une tranche de pain »), ce texte est transmis via notre serveur au service d'IA Claude, exploité par <strong>Anthropic PBC</strong>. Sa seule fonction est de convertir la phrase en un nom d'aliment et une quantité.</p><div class="box"><p><strong>Ce qui est envoyé :</strong> le texte que vous saisissez et la langue de votre application.</p><p><strong>Ce qui n'est pas envoyé :</strong> votre nom, votre adresse e-mail, votre poids, votre taille, vos mensurations, vos objectifs ou vos journaux passés. Le service d'IA ne reçoit rien qui vous identifie.</p></div><p>Les valeurs de calories et de macronutriments ne sont pas produites par l'IA. Le métabolisme de base, la dépense énergétique quotidienne, le taux de masse grasse et votre objectif calorique sont calculés à l'aide de formules nutritionnelles établies (Mifflin-St Jeor, Katch-McArdle, méthode de l'US Navy).</p><p>Le texte que vous saisissez n'est pas conservé par nous ; il reste en mémoire uniquement le temps de la requête.</p><h2>5. Prestataires de services</h2><p>Nous faisons appel à des prestataires qui traitent les données pour notre compte et sur nos instructions :</p><ul><li><strong>MongoDB Atlas</strong> — base de données (Francfort, Allemagne)</li><li><strong>Render</strong> — infrastructure serveur (Francfort, Allemagne)</li><li><strong>Anthropic PBC</strong> — analyse de texte par IA (États-Unis)</li><li><strong>Brevo</strong> — e-mails de vérification et de réinitialisation de mot de passe (Union européenne)</li><li><strong>Open Food Facts</strong> — base de données alimentaire ; seul un terme de recherche est transmis, jamais de donnée identifiante</li></ul><p>Ces organisations n'utilisent pas vos données à leurs propres fins. Les transferts vers les États-Unis reposent sur les clauses contractuelles types de la Commission européenne.</p><h2>6. Ce que nous ne faisons pas</h2><ul><li>Nous ne vendons ni ne louons vos données.</li><li>Nous n'affichons aucune publicité et ne réalisons aucun profilage publicitaire.</li><li>Nous ne partageons pas vos données de santé avec des assureurs, des employeurs ou des courtiers en données.</li><li>Nous n'utilisons pas vos données pour des décisions automatisées produisant des effets juridiques.</li></ul><h2>7. Durée de conservation</h2><p>Vos données sont conservées tant que votre compte reste ouvert. Sur demande de suppression, votre compte et tous vos journaux sont définitivement supprimés dans un délai maximal de <strong>30 jours</strong>. Les registres de consentement sont conservés jusqu'à 3 ans après la suppression, à titre de preuve de conformité.</p><h2>8. Vos droits</h2><p>En vertu de l'article 11 de la KVKK et des articles 15 à 22 du RGPD, vous avez le droit de :</p><ul><li>Savoir si nous traitons vos données et en demander une copie</li><li>Faire rectifier des données inexactes ou incomplètes</li><li>Demander la suppression de vos données</li><li>Retirer votre consentement explicite</li><li>Recevoir vos données dans un format structuré (portabilité)</li><li>Vous opposer au traitement</li></ul><p>Vous pouvez adresser vos demandes depuis l'écran <em>Paramètres</em> de l'application ou en écrivant à <a href="mailto:calculateyourmealcalory@gmail.com">calculateyourmealcalory@gmail.com</a>. Nous répondons sous 30 jours au plus tard.</p><p>Si vous souhaitez supprimer votre compte et vos données, la marche à suivre complète figure sur une page distincte : <a href="./delete-account.html">Suppression du compte et des données</a>. Vous y trouverez quelles données sont supprimées, lesquelles sont conservées et pour combien de temps, et comment effacer vos journaux sans fermer votre compte.</p><p>Vous conservez le droit d'introduire une réclamation auprès de l'autorité de protection des données de votre pays ou auprès de l'Autorité turque de protection des données personnelles.</p><h2>9. Âge minimum</h2><p>L'application s'adresse aux personnes de <strong>18 ans et plus</strong>. Si vous indiquez avoir moins de 18 ans, aucun objectif calorique n'est créé. Si nous apprenons avoir collecté les données d'un enfant, nous les supprimons.</p><h2>10. Sécurité</h2><p>Toutes les connexions sont chiffrées avec TLS. Les mots de passe sont conservés sous forme de hachages bcrypt irréversibles. Les jetons de session sont stockés dans l'espace sécurisé de votre appareil. L'accès à la base de données est protégé par authentification.</p><p>Aucun système ne peut garantir une sécurité absolue. En cas de violation affectant vos données, nous vous informerons, ainsi que l'autorité compétente, dans le délai prévu par la loi.</p><h2>11. Modifications</h2><p>Lorsque cette politique change, nous publions la nouvelle version sur cette page et mettons à jour le numéro de version. En cas de modification substantielle, nous vous en informons dans l'application et, le cas échéant, nous vous redemandons votre consentement.</p><h2>12. Contact</h2><p>Pour toute question ou demande : <a href="mailto:calculateyourmealcalory@gmail.com">calculateyourmealcalory@gmail.com</a></p><p class="note">Cette traduction est fournie à titre informatif. En cas de divergence, la version turque fait foi.</p>
+</section>
 
-<h2>1. Who is responsible</h2>
-<p>The data controller under the Turkish Personal Data Protection Law (KVKK, Law
-No. 6698) and the EU General Data Protection Regulation (GDPR) is:</p>
-<ul>
-  <li><strong>Emirhan Yel</strong></li>
-  <li>Email: <a href="mailto:calculateyourmealcalory@gmail.com">calculateyourmealcalory@gmail.com</a></li>
-</ul>
-
-<h2>2. Data we process</h2>
-
-<table>
-<thead><tr><th>Category</th><th>What it includes</th><th>Why</th></tr></thead>
-<tbody>
-<tr>
-  <td>Account data</td>
-  <td>Name, email address, password (stored only as an irreversible hash)</td>
-  <td>To create your account and let you sign in</td>
-</tr>
-<tr>
-  <td>Health and body data</td>
-  <td>Date of birth, sex, height, weight, waist/neck/hip measurements, calculated body fat percentage, activity level, weight goal</td>
-  <td>To calculate your daily calorie and macronutrient targets</td>
-</tr>
-<tr>
-  <td>Food and exercise logs</td>
-  <td>Foods you log, amounts, meal type, exercise type and duration, date and time</td>
-  <td>To show your daily tracking and keep your history</td>
-</tr>
-<tr>
-  <td>Technical preferences</td>
-  <td>App language, time zone</td>
-  <td>To show the interface in your language and to calculate "today" in your own time zone</td>
-</tr>
-<tr>
-  <td>Consent records</td>
-  <td>The date you gave explicit consent and the policy version you accepted</td>
-  <td>To meet our legal obligation and demonstrate that consent was given</td>
-</tr>
-</tbody>
-</table>
-
-<p>We do not collect your location, contacts, photo library or device identifiers.
-The app contains no advertising identifier, tracking pixel or analytics tool.</p>
-
-<h2>3. Legal basis</h2>
-
-<h3>Health data</h3>
-<p>Your height, weight, body measurements and the body fat percentage derived from
-them are a <strong>special category of personal data</strong> under GDPR Article 9
-and KVKK Article 6. We process them solely on the basis of the
-<strong>explicit consent</strong> you give when you first open the app
-(GDPR Art. 9(2)(a)).</p>
-<p>You may withdraw consent at any time. Doing so disables target calculation,
-because the calculation depends entirely on this data.</p>
-
-<h3>Other data</h3>
-<p>Your account data and logs are processed to perform our agreement with you
-(GDPR Art. 6(1)(b); KVKK Art. 5/2-c).</p>
-
-<h2>4. Processing by artificial intelligence</h2>
-<p>When you describe a meal or a workout in your own words ("two eggs and a slice
-of bread"), that text is sent through our server to the Claude AI service operated
-by <strong>Anthropic PBC</strong>. The purpose is to turn the sentence into food
-names and amounts.</p>
-
-<div class="box">
-<p><strong>What is sent:</strong> the text you typed and your app language.</p>
-<p><strong>What is not sent:</strong> your name, email, weight, height, body
-measurements, goals or past logs. The AI service receives nothing that identifies
-you.</p>
-</div>
-
-<p>Calorie and macronutrient calculations are not performed by AI. Basal metabolic
-rate, total daily energy expenditure, body fat percentage and your calorie target
-are computed with established nutrition formulas (Mifflin-St Jeor, Katch-McArdle,
-US Navy method).</p>
-
-<p>Anthropic PBC is based in the United States, so this text is transferred outside
-the EU and Türkiye. The transfer relies on your explicit consent. Anthropic's own
-privacy policy is available at
-<a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">anthropic.com/legal/privacy</a>.</p>
-
-<h2>5. Where your data is stored</h2>
-<p>Your account and logs are stored on MongoDB Atlas in the
-<strong>Frankfurt (Germany)</strong> region. The application server runs on Render,
-also in Frankfurt. Both are within the European Union.</p>
-
-<h2>6. Service providers</h2>
-<p>The following providers process your data only as far as needed to deliver the
-service. None may use it for their own purposes:</p>
-<ul>
-  <li><strong>MongoDB Atlas</strong> — database hosting (Frankfurt)</li>
-  <li><strong>Render</strong> — server hosting (Frankfurt)</li>
-  <li><strong>Anthropic PBC</strong> — text parsing (USA; only the food text you type)</li>
-  <li><strong>Open Food Facts</strong> — food database lookups (only the search term is sent, never your identity)</li>
-</ul>
-
-<h2>7. What we do not do</h2>
-<ul>
-  <li>We do not sell or rent your data.</li>
-  <li>We show no advertising and do no advertising-related profiling.</li>
-  <li>We do not share your health data with insurers, employers or data brokers.</li>
-  <li>We do not use your data for automated decisions with legal effects.</li>
-</ul>
-
-<h2>8. Retention</h2>
-<p>Your data is kept while your account remains open. On a deletion request, your
-account and all logs are permanently deleted within <strong>30 days</strong>.
-Consent records may be kept for a limited further period as proof of compliance.</p>
-
-<h2>9. Your rights</h2>
-<p>Under GDPR Articles 15–22 and KVKK Article 11 you may:</p>
-<ul>
-  <li>Ask whether we process your data and request a copy</li>
-  <li>Have inaccurate or incomplete data corrected</li>
-  <li>Request deletion of your data</li>
-  <li>Withdraw your explicit consent</li>
-  <li>Receive your data in a structured format (portability)</li>
-  <li>Object to processing</li>
-</ul>
-<p>You can submit requests from the <em>Settings</em> screen in the app, or by
-writing to
-<a href="mailto:calculateyourmealcalory@gmail.com">calculateyourmealcalory@gmail.com</a>.
-We respond within 30 days.</p>
-<p>If you want to delete your account and your data, the full steps are on a separate
-page: <a href="./delete-account.html">Account and Data Deletion</a>. It sets out which
-data is deleted, what is retained and for how long, and how to clear your records
-without closing your account.</p>
-<p>You also have the right to lodge a complaint with your national data protection
-authority, or with the Turkish Personal Data Protection Authority (KVKK Kurumu).</p>
-
-<h2>10. Age limit</h2>
-<p>The app is intended for users aged <strong>18 and over</strong>. If you indicate
-that you are under 18, no calorie target is created. If we learn that we have
-collected data belonging to a child, we delete it.</p>
-
-<h2>11. Security</h2>
-<p>All connections are encrypted with TLS. Passwords are stored as irreversible
-bcrypt hashes. Session tokens are held in your device's secure storage. Database
-access is protected by authentication.</p>
-<p>No system can guarantee absolute security. If a breach affects your data, we
-will notify you and the competent authority within the period required by law.</p>
-
-<h2>12. Changes</h2>
-<p>When this policy changes we publish the new version on this page and update the
-version number. For material changes we notify you in the app and, where required,
-ask for your consent again.</p>
-
-<h2>13. Contact</h2>
-<p>For any question or request:
-<a href="mailto:calculateyourmealcalory@gmail.com">calculateyourmealcalory@gmail.com</a></p>
-
+<section id="sec-de" hidden>
+<p>Diese Erklärung beschreibt, welche personenbezogenen Daten Calorie Count AI verarbeitet, warum sie verarbeitet werden und welche Rechte Sie haben.</p><div class="box"><p><strong>Kurz gefasst:</strong> Wir verarbeiten Ihre Daten ausschließlich, um Ihre Ernährungsziele zu berechnen und Ihre Mahlzeiten zu erfassen. Wir zeigen keine Werbung, verkaufen Ihre Daten nicht und geben sie nicht zu Marketingzwecken an Dritte weiter. Sie können jederzeit die Löschung verlangen.</p></div><h2>1. Verantwortlicher</h2><p>Verantwortlicher im Sinne des türkischen Datenschutzgesetzes (KVKK, Gesetz Nr. 6698) und der Datenschutz-Grundverordnung (DSGVO) ist:</p><ul><li><strong>Emirhan Yel</strong></li><li>E-Mail: <a href="mailto:calculateyourmealcalory@gmail.com">calculateyourmealcalory@gmail.com</a></li></ul><h2>2. Verarbeitete Daten</h2><table><thead><tr><th>Kategorie</th><th>Inhalt</th><th>Zweck</th></tr></thead><tbody><tr><td>Kontodaten</td><td>Name, E-Mail-Adresse, Passwort (ausschließlich als nicht umkehrbarer Hash gespeichert)</td><td>Ihr Konto anlegen und die Anmeldung ermöglichen</td></tr><tr><td>Gesundheits- und Körperdaten</td><td>Geburtsdatum, Geschlecht, Größe, Gewicht, Taillen-/Hals-/Hüftumfang, berechneter Körperfettanteil, Aktivitätsniveau, Gewichtsziel</td><td>Ihre täglichen Kalorien- und Makronährstoffziele berechnen</td></tr><tr><td>Ernährungs- und Trainingseinträge</td><td>Erfasste Lebensmittel, Mengen, Mahlzeitentyp, Art und Dauer der Bewegung, Datum und Uhrzeit</td><td>Ihre Tagesübersicht anzeigen und Ihren Verlauf speichern</td></tr><tr><td>Technische Einstellungen</td><td>App-Sprache, Zeitzone</td><td>Die Oberfläche in Ihrer Sprache anzeigen und „heute" in Ihrer Zeitzone berechnen</td></tr><tr><td>Einwilligungsnachweise</td><td>Datum Ihrer ausdrücklichen Einwilligung und die akzeptierte Version dieser Erklärung</td><td>Unsere gesetzliche Pflicht erfüllen und die Einwilligung nachweisen können</td></tr></tbody></table><p>Wir erheben weder Ihren Standort noch Ihre Kontakte, Ihre Fotogalerie oder Gerätekennungen. Die App enthält keine Werbe-ID, kein Tracking-Pixel und kein Analysewerkzeug.</p><h2>3. Rechtsgrundlage</h2><h3>Gesundheitsdaten</h3><p>Ihre Größe, Ihr Gewicht, Ihre Körpermaße und der daraus berechnete Körperfettanteil sind <strong>besondere Kategorien personenbezogener Daten</strong> nach Art. 9 DSGVO und Art. 6 KVKK. Wir verarbeiten sie ausschließlich auf Grundlage Ihrer <strong>ausdrücklichen Einwilligung</strong> beim ersten Öffnen der App (Art. 9 Abs. 2 lit. a DSGVO).</p><p>Sie können Ihre Einwilligung jederzeit widerrufen. Danach funktioniert die Zielberechnung nicht mehr, da sie vollständig auf diesen Daten beruht.</p><h3>Übrige Daten</h3><p>Ihre Kontodaten und Einträge werden zur Erfüllung des Vertrags zwischen Ihnen und uns verarbeitet (Art. 5 Abs. 2 lit. c KVKK; Art. 6 Abs. 1 lit. b DSGVO).</p><h2>4. Verarbeitung mit künstlicher Intelligenz</h2><p>Wenn Sie eine Mahlzeit oder Bewegung als Freitext beschreiben („zwei Eier und eine Scheibe Brot"), wird dieser Text über unseren Server an den von <strong>Anthropic PBC</strong> betriebenen KI-Dienst Claude übermittelt. Seine einzige Aufgabe ist es, den Satz in einen Lebensmittelnamen und eine Menge umzuwandeln.</p><div class="box"><p><strong>Übermittelt werden:</strong> der von Ihnen eingegebene Text und Ihre App-Sprache.</p><p><strong>Nicht übermittelt werden:</strong> Ihr Name, Ihre E-Mail-Adresse, Ihr Gewicht, Ihre Größe, Ihre Körpermaße, Ihre Ziele oder frühere Einträge. Der KI-Dienst erhält nichts, was Sie identifiziert.</p></div><p>Kalorien- und Makronährstoffwerte werden nicht von der KI erzeugt. Grundumsatz, Tagesumsatz, Körperfettanteil und Ihr Kalorienziel werden mit etablierten Ernährungsformeln berechnet (Mifflin-St Jeor, Katch-McArdle, US-Navy-Methode).</p><p>Der eingegebene Text wird von uns nicht gespeichert; er bleibt nur für die Dauer der Anfrage im Arbeitsspeicher.</p><h2>5. Dienstleister</h2><p>Wir setzen Dienstleister ein, die Daten in unserem Auftrag und nach unseren Weisungen verarbeiten:</p><ul><li><strong>MongoDB Atlas</strong> — Datenbank (Frankfurt, Deutschland)</li><li><strong>Render</strong> — Serverinfrastruktur (Frankfurt, Deutschland)</li><li><strong>Anthropic PBC</strong> — KI-Textanalyse (USA)</li><li><strong>Brevo</strong> — E-Mails zur Bestätigung und Passwortzurücksetzung (Europäische Union)</li><li><strong>Open Food Facts</strong> — Lebensmitteldatenbank; übermittelt wird nur ein Suchbegriff, nie identifizierende Daten</li></ul><p>Diese Unternehmen nutzen Ihre Daten nicht für eigene Zwecke. Übermittlungen in die USA stützen sich auf die Standardvertragsklauseln der Europäischen Kommission.</p><h2>6. Was wir nicht tun</h2><ul><li>Wir verkaufen oder vermieten Ihre Daten nicht.</li><li>Wir zeigen keine Werbung und erstellen keine Werbeprofile.</li><li>Wir geben Ihre Gesundheitsdaten nicht an Versicherungen, Arbeitgeber oder Datenhändler weiter.</li><li>Wir nutzen Ihre Daten nicht für automatisierte Entscheidungen mit rechtlicher Wirkung.</li></ul><h2>7. Speicherdauer</h2><p>Ihre Daten werden gespeichert, solange Ihr Konto besteht. Auf Ihren Löschwunsch hin werden Ihr Konto und sämtliche Einträge innerhalb von höchstens <strong>30 Tagen</strong> endgültig gelöscht. Einwilligungsnachweise werden als Nachweis der Rechtmäßigkeit bis zu 3 Jahre nach der Löschung aufbewahrt.</p><h2>8. Ihre Rechte</h2><p>Nach Art. 11 KVKK und Art. 15-22 DSGVO haben Sie das Recht:</p><ul><li>zu erfahren, ob wir Ihre Daten verarbeiten, und eine Kopie zu verlangen</li><li>unrichtige oder unvollständige Daten berichtigen zu lassen</li><li>die Löschung Ihrer Daten zu verlangen</li><li>Ihre ausdrückliche Einwilligung zu widerrufen</li><li>Ihre Daten in einem strukturierten Format zu erhalten (Datenübertragbarkeit)</li><li>der Verarbeitung zu widersprechen</li></ul><p>Anfragen können Sie über den Bildschirm <em>Einstellungen</em> in der App oder per E-Mail an <a href="mailto:calculateyourmealcalory@gmail.com">calculateyourmealcalory@gmail.com</a> stellen. Wir antworten innerhalb von höchstens 30 Tagen.</p><p>Wenn Sie Ihr Konto und Ihre Daten löschen möchten, finden Sie die vollständigen Schritte auf einer eigenen Seite: <a href="./delete-account.html">Konto- und Datenlöschung</a>. Dort steht, welche Daten gelöscht werden, welche wie lange aufbewahrt bleiben und wie Sie Ihre Einträge löschen, ohne das Konto zu schließen.</p><p>Ihnen steht das Recht zu, bei der Datenschutzbehörde Ihres Landes oder bei der türkischen Datenschutzbehörde Beschwerde einzulegen.</p><h2>9. Altersgrenze</h2><p>Die App richtet sich an Personen ab <strong>18 Jahren</strong>. Wenn Sie angeben, jünger als 18 zu sein, wird kein Kalorienziel erstellt. Erfahren wir, dass wir Daten eines Kindes erhoben haben, löschen wir diese.</p><h2>10. Sicherheit</h2><p>Alle Verbindungen sind mit TLS verschlüsselt. Passwörter werden als nicht umkehrbare bcrypt-Hashes gespeichert. Sitzungs-Token liegen im sicheren Speicher Ihres Geräts. Der Datenbankzugriff ist durch Authentifizierung geschützt.</p><p>Kein System bietet absolute Sicherheit. Betrifft eine Verletzung Ihre Daten, informieren wir Sie und die zuständige Behörde innerhalb der gesetzlich vorgeschriebenen Frist.</p><h2>11. Änderungen</h2><p>Ändert sich diese Erklärung, veröffentlichen wir die neue Fassung auf dieser Seite und aktualisieren die Versionsnummer. Bei wesentlichen Änderungen informieren wir Sie in der App und holen, soweit erforderlich, Ihre Einwilligung erneut ein.</p><h2>12. Kontakt</h2><p>Für Fragen und Anliegen: <a href="mailto:calculateyourmealcalory@gmail.com">calculateyourmealcalory@gmail.com</a></p><p class="note">Diese Übersetzung dient nur zur Information. Bei Abweichungen ist die türkische Fassung maßgeblich.</p>
 </section>
 
 <footer>
-  <p>Calorie Count AI · <span id="footDate"></span></p>
+  <p>Calorie Count AI · Yel Apps · <span id="footDate"></span></p>
 </footer>
 
 </div>
 
 <script>
 (function(){
-  var META = {
-    tr: { title:"Gizlilik Politikası", date:"Yürürlük tarihi", lang:"tr" },
-    en: { title:"Privacy Policy",      date:"Effective date",  lang:"en" }
-  };
-  var EFFECTIVE = "2026-10-06";
+  var LANGS = ["tr","en","es","fr","de"];
+  var META = {"tr":{"title":"Gizlilik Politikası","date":"Yürürlük tarihi","loc":"tr-TR"},"en":{"title":"Privacy Policy","date":"Effective date","loc":"en-GB"},"es":{"title":"Política de Privacidad","date":"Fecha de entrada en vigor","loc":"es-ES"},"fr":{"title":"Politique de Confidentialité","date":"Date d'entrée en vigueur","loc":"fr-FR"},"de":{"title":"Datenschutzerklärung","date":"Gültig ab","loc":"de-DE"}};
+  var VER = {"tr":"Sürüm","en":"Version","es":"Versión","fr":"Version","de":"Version"};
+  var VERSION = "1.1";
+  var DATE = "2026-10-13";
   function fmt(lang){
-    var d = new Date(EFFECTIVE);
-    return d.toLocaleDateString(lang === "tr" ? "tr-TR" : "en-GB",
-      { year:"numeric", month:"long", day:"numeric" });
+    try { return new Date(DATE).toLocaleDateString(META[lang].loc,
+      { year:"numeric", month:"long", day:"numeric" }); }
+    catch(e){ return DATE; }
   }
   function show(lang){
-    document.getElementById("tr").hidden = (lang !== "tr");
-    document.getElementById("en").hidden = (lang !== "en");
+    if (LANGS.indexOf(lang) === -1) lang = "en";
+    LANGS.forEach(function(l){
+      var el = document.getElementById("sec-" + l);
+      if (el) el.hidden = (l !== lang);
+    });
     document.getElementById("pageTitle").textContent = META[lang].title;
-    document.getElementById("pageDate").textContent =
-      META[lang].date + ": " + fmt(lang) + " · " + (lang==="tr" ? "Sürüm" : "Version") + " 1.0";
+    var line = META[lang].date + ": " + fmt(lang);
+    if (VER[lang] && VERSION) line += " · " + VER[lang] + " " + VERSION;
+    document.getElementById("pageDate").textContent = line;
     document.getElementById("footDate").textContent = fmt(lang);
-    document.documentElement.lang = META[lang].lang;
+    document.documentElement.lang = lang;
     document.querySelectorAll(".langs button").forEach(function(b){
       b.setAttribute("aria-current", String(b.dataset.lang === lang));
     });
@@ -436,11 +112,15 @@ ask for your consent again.</p>
   document.querySelectorAll(".langs button").forEach(function(b){
     b.addEventListener("click", function(){ show(b.dataset.lang); });
   });
-  var initial = (location.hash || "").replace("#","");
-  if (initial !== "tr" && initial !== "en") {
-    initial = (navigator.language || "").toLowerCase().indexOf("tr") === 0 ? "tr" : "en";
+  function initial(){
+    var h = (location.hash || "").replace("#","").toLowerCase();
+    if (LANGS.indexOf(h) !== -1) return h;
+    var q = new URLSearchParams(location.search).get("lang");
+    if (q && LANGS.indexOf(q.toLowerCase()) !== -1) return q.toLowerCase();
+    var n = (navigator.language || "").toLowerCase().slice(0,2);
+    return LANGS.indexOf(n) !== -1 ? n : "en";
   }
-  show(initial);
+  show(initial());
 })();
 </script>
 </body>
