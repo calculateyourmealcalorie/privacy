@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Calorie Count AI testi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap&subset=latin,latin-ext">
+<style>
+/* Tek sütun, tek belirgin eylem; uyarılar eylemden sonra, sorular başlamadan */
+:root{
+  --bg:#f6f7f4; --surface:#ffffff; --fg:#14181a; --muted:#5f6a63;
+  --line:#dde3dc; --accent:#1d7a4f; --accent-ink:#ffffff; --tint:#eef5f0;
+  --warn:#fdf6e9; --warn-line:#e8d9b8;
+  --sans:'Figtree',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#101312; --surface:#181c1a; --fg:#eaeee9; --muted:#9aa49d;
+    --line:#272d2a; --accent:#4ec08a; --accent-ink:#0d1210; --tint:#16251e;
+    --warn:#231f16; --warn-line:#3a3426;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#101312; --surface:#181c1a; --fg:#eaeee9; --muted:#9aa49d;
+  --line:#272d2a; --accent:#4ec08a; --accent-ink:#0d1210; --tint:#16251e;
+  --warn:#231f16; --warn-line:#3a3426;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  background:var(--bg); color:var(--fg);
+  font:400 16px/1.6 var(--sans); -webkit-text-size-adjust:100%;
+}
+.wrap{
+  max-width:620px; margin:0 auto;
+  padding-block:calc(40px + env(safe-area-inset-top,0px)) calc(64px + env(safe-area-inset-bottom,0px));
+  padding-left:max(20px, env(safe-area-inset-left,0px));
+  padding-right:max(20px, env(safe-area-inset-right,0px));
+}
+.eyebrow{font:600 12px/1 var(--sans); letter-spacing:.16em; text-transform:uppercase; color:var(--accent); margin:0 0 16px}
+h1{font:700 clamp(29px,6.4vw,40px)/1.18 var(--sans); letter-spacing:-.02em; margin:0 0 16px; text-wrap:balance}
+.lead{font-size:17px; margin:0 0 28px; color:var(--fg)}
+.cta{
+  display:block; text-align:center; text-decoration:none;
+  background:var(--accent); color:var(--accent-ink);
+  font:700 18px/1 var(--sans); padding:19px 24px; border-radius:12px;
+}
+.cta:focus-visible{outline:3px solid var(--fg); outline-offset:3px}
+.under{text-align:center; font-size:13.5px; color:var(--muted); margin:12px 0 44px}
+h2{font:700 13px/1 var(--sans); letter-spacing:.13em; text-transform:uppercase; color:var(--muted);
+   margin:0 0 16px; padding-bottom:10px; border-bottom:1px solid var(--line)}
+section{margin:0 0 40px}
+ol{margin:0; padding:0; list-style:none; counter-reset:s}
+ol li{counter-increment:s; position:relative; padding:0 0 0 42px; margin:0 0 16px}
+ol li::before{
+  content:counter(s); position:absolute; left:0; top:0;
+  width:28px; height:28px; border-radius:50%; background:var(--tint); color:var(--accent);
+  font:700 14px/28px var(--sans); text-align:center;
+}
+.warn{background:var(--warn); border:1px solid var(--warn-line); border-radius:12px; padding:18px 20px}
+.warn p{margin:0 0 14px}
+.warn p:last-child{margin:0}
+.warn b{font-weight:600}
+ul.plain{margin:0; padding:0; list-style:none}
+ul.plain li{padding:0 0 0 20px; position:relative; margin:0 0 12px}
+ul.plain li::before{content:''; position:absolute; left:0; top:10px; width:7px; height:7px; border-radius:50%; background:var(--accent)}
+p{margin:0 0 14px}
+.links{display:flex; gap:20px; flex-wrap:wrap; margin-top:4px}
+.links a{color:var(--accent); font-size:14.5px; text-decoration:none; border-bottom:1px solid var(--accent); padding-bottom:2px}
+footer{margin-top:48px; padding-top:20px; border-top:1px solid var(--line); font-size:13.5px; color:var(--muted)}
+footer span{color:var(--fg)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="eyebrow">Yel Apps</p>
+  <h1>Calorie Count AI'yı test eder misin?</h1>
+  <p class="lead">Yediklerinin kalorisini ve makrolarını fotoğraftan, yazarak ya da barkod
+  okutarak hesaplayan bir uygulama yaptım. Google Play'de yayınlayabilmem için bir süre
+  gerçek kullanıcıların denemesi gerekiyor.</p>
+
+  <a class="cta" href="https://play.google.com/apps/testing/com.caloriecountai.app">Teste katıl</a>
+  <p class="under">Android 7.0 ve üstü · ücretsiz · reklam yok</p>
+
+  <section>
+    <h2>Nasıl oluyor</h2>
+    <ol>
+      <li>Yukarıdaki düğmeye bas, açılan sayfada <b>testçi ol</b> de.</li>
+      <li>Play Store'dan uygulamayı kur.</li>
+      <li>Ara sıra açıp bir şeyler kaydet. Bozuk ya da kafa karıştırıcı bulduğun yeri bana yaz.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Baştan söyleyeyim</h2>
+    <div class="warn">
+      <p><b>Doğru hesapla kabul et.</b> Linki, telefonundaki Play Store'da açık olan Google
+      hesabıyla kabul etmen gerekiyor. Başka hesapla kabul edersen uygulama sende görünmez.</p>
+      <p><b>Hemen çıkmayabilir.</b> Kabul ettikten sonra uygulamanın Play'de belirmesi bazen
+      bir saati buluyor. Görünmezse biraz bekle.</p>
+      <p><b>Adı şimdilik tuhaf.</b> Play'de <b>com.caloriecountai.app</b> diye listeleniyor.
+      Doğru uygulama o; Google incelemesi bitince adı düzelecek.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Ne yapıyor</h2>
+    <ul class="plain">
+      <li>Tabağının fotoğrafını çek ya da ne yediğini kendi cümlelerinle yaz — besin ve miktar tanınsın.</li>
+      <li>Paketin barkodunu okut, değerler doğrudan gelsin.</li>
+      <li>Günlük kalori ve makro hedefin yaşından, boyundan, kilondan ve ölçülerinden hesaplanır.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Verilerin</h2>
+    <p>Reklam yok, reklam kimliği yok. Verilerini satmıyorum, pazarlama için kimseyle
+    paylaşmıyorum. Hesabını ve bütün kayıtlarını uygulama içinden silebilirsin.</p>
+    <p class="links">
+      <a href="https://calculateyourmealcalorie.github.io/privacy/">Gizlilik politikası</a>
+      <a href="https://calculateyourmealcalorie.github.io/privacy/delete-account.html">Hesap silme</a>
+    </p>
+  </section>
+
+  <footer>
+    <span>Emirhan Yel</span> · Yel Apps<br>
+    Soru olursa: calculateyourmealcalory@gmail.com
+  </footer>
+
+</div>
+</body>
+</html>
